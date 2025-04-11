@@ -3,7 +3,8 @@
 ODATE=$1
 
 if [ -z "$ODATE" ]; then
-    ODATE=$(TZ=America/Sao_Paulo date +%Y%m%d)
+    ODATE=$(TZ=America/Sao_Paulo date +%Y-%m-%d)
+    cat $ODATE
 fi
 
 sudo docker run --rm \
@@ -12,4 +13,3 @@ sudo docker run --rm \
   --env-file .env \
  python-image \
   --odate $ODATE 
-

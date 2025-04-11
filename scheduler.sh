@@ -3,7 +3,7 @@
 HORA=$1
 MINUTO=$2
 
-if [ -z "$HORA"] ; then
+if [ -z "$HORA" ] ; then
     HORA=17
 fi
 
