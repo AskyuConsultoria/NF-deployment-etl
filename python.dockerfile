@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY req.txt ./
 
-COPY . .
+COPY ./NF-deployment-etl .
 
 RUN pip install --no-cache-dir -r req.txt
 
