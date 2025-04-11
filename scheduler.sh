@@ -3,12 +3,12 @@
 HORA=$1
 MINUTO=$2
 
-if [ -z "$HORA"]; then
+if [ -z "$HORA"] ; then
     HORA=17
 fi
 
-if [ -z "$MINUTO"]; then
-    HORA=0
+if [ -z "$MINUTO" ]; then
+    MINUTO=0
 fi
 
 SCRIPT="/home/ubuntu/NF-deployment-etl/run.sh"

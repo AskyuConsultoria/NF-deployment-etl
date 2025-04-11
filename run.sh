@@ -2,7 +2,7 @@
 
 ODATE=$1
 
-if [ -z "$ODATE"]; then
+if [ -z "$ODATE" ]; then
     ODATE=$(TZ=America/Sao_Paulo date +%Y%m%d)
 fi
 

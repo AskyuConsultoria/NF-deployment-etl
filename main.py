@@ -11,7 +11,7 @@ def main():
     raw_structured_bucket = os.getenv("raw_structured_bucket")
     trusted_bucket = os.getenv("trusted_bucket")
 
-    parser.add_argument("odate", help="Data de movimento da NF")
+    parser.add_argument("--odate", help="Data de movimento da NF")
     parser.add_argument("--verbose", action="store_true", help="Modo verboso - Auxilia para debugar o código")
 
     args = parser.parse_args()
