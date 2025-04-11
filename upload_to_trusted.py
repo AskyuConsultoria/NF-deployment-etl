@@ -3,7 +3,7 @@ from time import gmtime, strftime
 import os
 import boto3
 import logging
-
+from botocore.exceptions import ClientError
 
 
 
@@ -21,8 +21,6 @@ def upload_file(file_name, bucket, object_name=None):
 
 def realizar_upload(bucket_trusted, odate):
     csv_path = f'/app/trusted/NFS/NFS-GROUP-TRUSTED-{odate}.csv' 
-    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
-
     bucket_name = bucket_trusted
     print('Carregando no bucket\n')
 
