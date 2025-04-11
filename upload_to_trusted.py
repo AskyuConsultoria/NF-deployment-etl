@@ -3,8 +3,7 @@ from time import gmtime, strftime
 import os
 import boto3
 import logging
-import glob
-import shutil
+
 
 
 
@@ -21,10 +20,10 @@ def upload_file(file_name, bucket, object_name=None):
 
 
 def realizar_upload(bucket_trusted, odate):
-    csv_path = '~/trusted_files/NFS/NFS-GROUP-TRUSTED-%s.csv' %(odate)
-    csv_path = os.path.expanduser(csv_path)
-    bucket_name = bucket_trusted
+    csv_path = f'/app/trusted/NFS/NFS-GROUP-TRUSTED-{odate}.csv' 
+    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
 
+    bucket_name = bucket_trusted
     print('Carregando no bucket\n')
 
     upload_file(csv_path, bucket_name, csv_path)

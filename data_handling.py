@@ -5,8 +5,8 @@ import os
 
 def limpar_arquivo(odate): 
     # leitura do csv como dataframe
-    csv_path = '~/raw_files/NFS/NFS-GROUP-%s.csv' %(odate)
-    csv_path = os.path.expanduser(csv_path)
+    csv_path = '/app/raw/NFS/NFS-GROUP-%s.csv' %(odate)
+  
     df = pd.read_csv(csv_path)
 
     # limpa os valores nulos do dataframe
@@ -18,6 +18,6 @@ def limpar_arquivo(odate):
     csv_new_file = 'NFS-GROUP-TRUSTED-%s.csv' %(odate)
 
     # upload na pasta de trusted
-    csv_new_path = '~/trusted_files/NFS/'+ csv_new_file
+    csv_new_path = '/app/trusted/NFS/'+ csv_new_file
 
     print(f".csv criado em '{csv_new_path}'\n")

@@ -19,13 +19,13 @@ def main():
     if args.verbose:
         print("🟢 Executando em modo verboso")
         print(f"Data de movimento: {args.odate}")
-        print(f"Bucket RAW não estruturado: {args.raw_unstructured_bucket}") 
-        print(f"Bucket RAW estruturado: {args.raw_structured_bucket}")
-        print(f"Bucket TRUSTED: {args.trusted_bucket}")
+        print(f"Bucket RAW não estruturado: {raw_unstructured_bucket}") 
+        print(f"Bucket RAW estruturado: {raw_structured_bucket}")
+        print(f"Bucket TRUSTED: {trusted_bucket}")
 
-    download_from_raw.baixar_arquivo_raw(args.raw_structured_bucket, args.odate)
+    download_from_raw.baixar_arquivo_raw(raw_structured_bucket, args.odate)
     data_handling.limpar_arquivo(args.odate)
-    upload_to_trusted.realizar_upload(args.trusted_bucket, args.odate)
+    upload_to_trusted.realizar_upload(trusted_bucket, args.odate)
 
 
 if __name__ == "__main__":
