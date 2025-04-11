@@ -17,12 +17,10 @@ LOG="/home/ubuntu/NF-deployment-etl/run.log"
 
 CRON_LINHA="$MINUTO $HORA * * * $SCRIPT >> $LOG 2>&1"
 
-# Verifica se já existe essa linha no crontab
-(crontab -l 2>/dev/null | grep -F "$SCRIPT") >/dev/null
+# Remove qualquer linha que contenha o caminho do script
+crontab -l 2>/dev/null | grep -v "$SCRIPT" | crontab -
 
-if [ $? -eq 0 ]; then
-    echo "A tarefa já está agendada no crontab."
-else
-    (crontab -l 2>/dev/null; echo "$CRON_LINHA") | crontab -
-    echo "Tarefa adicionada ao crontab com sucesso!"
-fi
+# Adiciona a nova linha
+(crontab -l 2>/dev/null; echo "$CRON_LINHA") | crontab -
+
+echo "Crontab atualizado para executar às $HORA:$MINUTO"
