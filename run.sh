@@ -10,6 +10,6 @@ fi
 sudo docker run --rm \
   -v ~/raw/NFS:/app/raw \
   -v ~/trusted/NFS:/app/trusted \
-  --env-file .env \
+  --env-file /home/ubuntu/.env \
  python-image \
   --odate $ODATE 
