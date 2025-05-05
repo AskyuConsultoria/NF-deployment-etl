@@ -25,5 +25,5 @@ def limpar_arquivo(odate):
     csv_new_path = '/app/trusted/NFS/'+ csv_new_file
     os.makedirs(os.path.dirname(csv_new_path), exist_ok=True)
 
-    df_nan.to_csv(csv_new_path, index=False)
+    df_nan.to_csv(csv_new_path, index=False, enconding="utf-8-sig")
     print(f".csv criado em '{csv_new_path}'\n")
