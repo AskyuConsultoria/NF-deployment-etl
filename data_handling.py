@@ -7,7 +7,7 @@ def limpar_arquivo(odate):
     # leitura do csv como dataframe
     csv_path = '/app/raw/NFS/NFS-GROUP-%s.csv' %(odate)
 
-    df = pd.read_csv(csv_path, sep=";")
+    df = pd.read_csv(csv_path, quoting=1, doublequote=True, sep=";", engine='python')
 
     # limpa os valores nulos do dataframe
     df_nan = df.dropna()
